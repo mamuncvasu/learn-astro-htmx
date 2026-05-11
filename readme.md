@@ -40,7 +40,43 @@
 
 ## Astro.props
 
-## Api call and Data integration
+## Api call and Data integration [Rails 8 api + Astro Frontend]
+
+    Step 01: rails app
+
+        rails new api-backend
+        cd api-backend
+        rails g scaffold Post title body:text
+        rails db:migrate
+        bundle add faker
+        edit: seed.rb
+            1000.times  do
+	            Post.create(
+                title: Faker::Lorem.sentence ,
+                body: Faker::Lorem.paragraph
+                )
+            end
+
+        rails db:seed
+        localhost:3000/posts.json
+
+    Step 02: Astro Frontend
+
+        create a page: "page/post"
+
+        ---
+        const response = await fetch('http://localhost:3000/posts.json');
+        const posts = await response.json();
+        ---
+        <h1> All Blog Posts</h1>
+            {posts.map(post => (
+            <article>
+                <h2>{post.title}</h2>
+                <p>{post.body}</p>
+            </article>
+            ))}
+
+        Now Browse : localhost:4321/post
 
 ## Build, Preview and Deploy
 
