@@ -40,7 +40,7 @@
 
 ## Astro.props
 
-## Api call and Data integration [Rails 8 api + Astro Frontend]
+## Api call and Data integration [Rails 8 api + Astro Frontend]  --- problem: শুধু ডেভেলপমেন্টে কাজ করে , build করে ফেললে শুধু static কনটেন্ট দেখায়। 
 
     Step 01: rails app
 
