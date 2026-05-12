@@ -120,7 +120,42 @@
 ## Https on build site
 
 	SERVER_KEY_PATH=./private/key.pem SERVER_CERT_PATH=./private/cert.pem node ./dist/server/entry.mjs
+	
+## Advanced : authentication and authorization [https://docs.astro.build/en/guides/authentication/]
 
-## Advanced : Astro with SolidJs
+
+
+## Advanced : Astro with SolidJs [https://docs.astro.build/en/guides/integrations-guide/solid-js/]
+
+	1) npx astro add solid
+	2) create (src/components/MySolidComponent.jsx) and write solidjs code:
+		
+		function CharacterName() {
+		  const [name] = createResource(() =>
+		    fetch('https://swapi.dev/api/people/1')
+		      .then((result) => result.json())
+		      .then((data) => data.name)
+		  );
+		
+		  return (
+		    <>
+		      <h2>Name:</h2>
+		      {/* Luke Skywalker */}
+		      <div>{name()}</div>
+		    </>
+		  );
+		}
+	
+	3) use that component in a page ()
+
+		---
+		import MyReactComponent from '../components/MySolidComponent.jsx';
+		---
+		<html>
+		  <body>
+		    <h1>Use React components directly in Astro!</h1>
+		    <MySolidComponent />
+		  </body>
+		</html>
 
 ## Advanced : Astro with React
