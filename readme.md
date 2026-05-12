@@ -117,6 +117,10 @@
     npm run build
     npm run preview
 
+## Https on build site
+
+	SERVER_KEY_PATH=./private/key.pem SERVER_CERT_PATH=./private/cert.pem node ./dist/server/entry.mjs
+
 ## Advanced : Astro with SolidJs
 
 ## Advanced : Astro with React
