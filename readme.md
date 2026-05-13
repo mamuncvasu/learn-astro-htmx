@@ -82,7 +82,7 @@
         cd api-backend
         rails g scaffold Post title body:text
         rails db:migrate
-        bundle add faker
+        bundle add faker rack-cors
         edit: seed.rb
             1000.times  do
 	            Post.create(
@@ -92,6 +92,15 @@
             end
 
         rails db:seed
+        edit: config/initializers/cors.rb
+	        Rails.application.config.middleware.insert_before 0, Rack::Cors do
+			  allow do
+			    origins '*'
+			    resource '*', headers: :any, methods: [:get, :post, :patch, :put]
+			  end
+			end
+			
+		rails s
         localhost:3000/posts.json
 
     Step 02: Astro Frontend
