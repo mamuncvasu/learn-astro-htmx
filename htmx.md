@@ -1,7 +1,22 @@
 # htmx learning
 
-gem install webrick
-ruby -run -e httpd . -p 8888
+## Static site with ruby 	
+	- gem install webrick
+	- mkdir htmx-practice & cd htmx-practice
+	- ruby -run -e httpd . -p 8888
+
+## Static site with nginx [ folder location :  /home/cvasu/htmx-practice] -- not ok yet
+	
+    server {
+        listen       80;
+        server_name  cvasu.dev;
+
+        location / {
+            root   /home/cvasu/htmx-practice;
+            index  index.html index.htm;
+        }
+    }
+
 
 ## Backend Setup
 	 rails new api-backend
